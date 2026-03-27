@@ -65,7 +65,7 @@ with mp_face_detection.FaceDetection(model_selection= 0, min_detection_confidenc
         cap = cv2.VideoCapture(args.filePath )    
         ret, frame = cap.read()
 
-        output_video = cv2.VideoWriter(os.path.join(output_dir,'output.mp4')
+        output_video = cv2.VideoWriter(os.path.join(output_dir,'output.mp4'),
                                        cv2.VideoWriter_fourcc(*'MP4V'),
                                        25,
                                        (frame.shape[1],frame.shape[0]))
@@ -79,6 +79,7 @@ with mp_face_detection.FaceDetection(model_selection= 0, min_detection_confidenc
             
 
         cap.release()
+        output_video.release()
 
     #cv2.imshow('Mogged',img)
     #cv2.waitKey(0)
